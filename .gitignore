@@ -7,6 +7,12 @@
 /node_modules
 /bower_components
 
+# testing
+/coverage
+
+# production
+/build
+
 # IDEs and editors
 /.idea
 .project
@@ -32,6 +38,10 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # System Files
 .DS_Store

@@ -25,7 +25,7 @@
     "lint": "eslint '*/**/*.{ts,tsx}'",
     "lint:fix": "yarn lint --fix",
     "test": "react-scripts test",
-    "test:coverage": "react-scripts test --coverage",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
@@ -68,7 +68,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "yarn lint && lint-staged",
-      "pre-push": "yarn run test:coverage && yarn run build-storybook"
+      "pre-push": "yarn run test:coverage"
     }
   }
 }

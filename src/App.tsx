@@ -1,23 +1,21 @@
 
 import './App.css';
-
+import Grid from "@material-ui/core/Grid";
+import { Typography } from '@material-ui/core';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid
+  container
+  spacing={0}
+  direction="column"
+  alignItems="center"
+  justify="center"
+  style={{ minHeight: '100vh' }}
+>
+  <Grid item xs={3}>
+   <Typography>Hello Grid</Typography>
+  </Grid>   
+</Grid> 
   );
 }
 

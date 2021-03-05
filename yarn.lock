@@ -5646,6 +5646,11 @@ cyclist@^1.0.1:
   resolved "https://artifactory.gold.mgmt.carezen.net:443/artifactory/api/npm/care-npm-virtual/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
+cypress-get-it@^1.0.1:
+  version "1.0.1"
+  resolved "https://artifactory.gold.mgmt.carezen.net:443/artifactory/api/npm/care-npm-virtual/cypress-get-it/-/cypress-get-it-1.0.1.tgz#c5ab8ec45f690bbe8498c7bd099850ca2f22bd73"
+  integrity sha1-xauOxF9pC76EmMe9CZhQyi8ivXM=
+
 cypress@^6.6.0:
   version "6.6.0"
   resolved "https://artifactory.gold.mgmt.carezen.net:443/artifactory/api/npm/care-npm-virtual/cypress/-/cypress-6.6.0.tgz#659c64cdb06e51b6be18fdac39d8f192deb54fa0"

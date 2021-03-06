@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import './App.css'
 import Grid from '@material-ui/core/Grid'
 import AutocompleteField from './components/autocomplete/Autocomplete'
-import { GITHUB_TOKEN } from './config'
+import { GITHUB_TOKEN } from './config/config'
 import axios from 'axios'
 
 function App() {

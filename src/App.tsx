@@ -1,33 +1,41 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './App.css'
 import Grid from '@material-ui/core/Grid'
 import AutocompleteField from './components/autocomplete/Autocomplete'
-
-const axios = require('axios')
+import { GITHUB_TOKEN } from './config'
+import axios from 'axios'
 
 function App() {
   const [issues, setIssues] = React.useState([])
+  const [selectedIssue, setSelectedIssue] = React.useState(null)
+  const [searchText, setSearchText] = React.useState('')
 
+  useEffect(() => {
+    const header = {
+      Authorization: `token ${GITHUB_TOKEN}`,
+    }
+    if (searchText) {
+      var q = `https://api.github.com/search/issues?accept=application/vnd.github.v3+json&per_page=30&page=1&q=repo:facebook/react+${searchText} in:title`
+      axios
+        .get(q, { headers: header })
+        .then((response: any) => {
+          if (response && response.data) {
+            setIssues(response.data.items)
+          } else {
+            setIssues([])
+          }
+        })
+        .catch((error: any) => {
+          console.log('ERROR', error)
+        })
+    }
+  }, [searchText])
   const getSearchResults = (s: string) => {
-    const q = `https://api.github.com/search/issues?accept=application/vnd.github.v3+json&per_page=30&page=1&q=type:issue+is:open+repo:facebook/react+${s} in:title`
-    axios
-      .get(q)
-      .then((response: any) => {
-        // handle success
-        if (response && response.data) {
-          setIssues(response.data.items)
-        } else {
-          setIssues([])
-        }
-      })
-      .catch((error: any) => {
-        // handle error
-        console.log('ERROR', error)
-      })
+    setSearchText(s)
   }
   const onSelectIssue = (event: any, issue: any) => {
     if (issue) {
-      window.open(issue.html_url, '_blank')
+      setSelectedIssue(issue)
     }
   }
   return (
@@ -40,7 +48,7 @@ function App() {
               options={issues}
               onSelectIssue={onSelectIssue}
               textChange={getSearchResults}
-            />
+            ></AutocompleteField>
           </Grid>
         </Grid>
       </Grid>

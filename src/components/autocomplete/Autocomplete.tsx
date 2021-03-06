@@ -1,21 +1,19 @@
-import React from "react";
-import "./Autocomplete.css";
-import Grid from "@material-ui/core/Grid";
-import TextField from "@material-ui/core/TextField";
-import Autocomplete from "@material-ui/lab/Autocomplete";
+import React from 'react'
+import './Autocomplete.css'
+import Grid from '@material-ui/core/Grid'
+import TextField from '@material-ui/core/TextField'
+import Autocomplete from '@material-ui/lab/Autocomplete'
 
 const AutocompleteField = (args: any) => {
-  const options = args.options;
-  const textChange = args.textChange;
-  const onSelectIssue = args.onSelectIssue;
-  var backgroundColor = args.backgroundColor;
-  var width = args.width;
-  const getOptionLabel = (option: any): string => {
-    return option.title;
-  };
+  const { options } = args
+  const { textChange } = args
+  const { onSelectIssue } = args
+  const { backgroundColor } = args
+  const { width } = args
+  const getOptionLabel = (option: any): string => option.title
   const textChanged = (args: any) => {
-    textChange(args.target.value);
-  };
+    textChange(args.target.value)
+  }
 
   return (
     <Grid container spacing={3}>
@@ -34,7 +32,7 @@ const AutocompleteField = (args: any) => {
                 className="text-feild"
                 placeholder="Search issues"
                 onKeyUp={(args) => {
-                  textChanged(args);
+                  textChanged(args)
                 }}
               />
             )}
@@ -44,7 +42,7 @@ const AutocompleteField = (args: any) => {
         )}
       </Grid>
     </Grid>
-  );
-};
+  )
+}
 
-export default AutocompleteField;
+export default AutocompleteField

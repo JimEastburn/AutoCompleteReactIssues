@@ -29,7 +29,7 @@ const AutocompleteField = (args: any) => {
             renderInput={(params) => (
               <TextField
                 {...params}
-                data-automation="autoCompleteTextField"
+                data-testid="autoCompleteTextField"
                 variant="outlined"
                 className="text-feild"
                 placeholder="Search issues"

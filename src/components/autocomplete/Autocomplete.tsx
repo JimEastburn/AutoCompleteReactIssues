@@ -5,14 +5,17 @@ import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 
 const AutocompleteField = (args: any) => {
-  const { options } = args
-  const { textChange } = args
-  const { onSelectIssue } = args
-  const { backgroundColor } = args
-  const { width } = args
-  const getOptionLabel = (option: any): string => option.title
+  const options = args.options
+  const textChange = args.textChange
+  const onSelectIssue = args.onSelectIssue
+  var backgroundColor = args.backgroundColor
+  var width = args.width
+  const getOptionLabel = (option: any): string => {
+    return option.title
+  }
   const textChanged = (args: any) => {
-    textChange(args.target.value)
+    const value: string = args.target.value
+    textChange(value)
   }
 
   return (

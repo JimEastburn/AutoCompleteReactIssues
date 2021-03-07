@@ -16,6 +16,7 @@ function App() {
       Authorization: `token ${GITHUB_TOKEN}`,
     }
     if (searchText) {
+      console.log('searchText: ', searchText)
       var q = `https://api.github.com/search/issues?accept=application/vnd.github.v3+json&per_page=30&page=1&q=repo:facebook/react+${searchText} in:title`
       axios
         .get(q, { headers: header })
@@ -34,7 +35,7 @@ function App() {
   const getSearchResults = (s: string) => {
     setSearchText(s)
   }
-  const onSelectIssue = (issue: any) => {
+  const onSelectIssue = (event: any, issue: any) => {
     if (issue) {
       setSelectedIssue(issue)
     }

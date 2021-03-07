@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid'
 import AutocompleteField from './components/autocomplete/Autocomplete'
 import { GITHUB_TOKEN } from './config/config'
 import axios from 'axios'
+import IssueView from './components/IssueView/IssueView'
 
 function App() {
   const [issues, setIssues] = React.useState([])
@@ -49,6 +50,7 @@ function App() {
               onSelectIssue={onSelectIssue}
               textChange={getSearchResults}
             ></AutocompleteField>
+            <IssueView selectedIssue={selectedIssue}></IssueView>
           </Grid>
         </Grid>
       </Grid>

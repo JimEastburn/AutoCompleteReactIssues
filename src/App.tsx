@@ -34,7 +34,7 @@ function App() {
   const getSearchResults = (s: string) => {
     setSearchText(s)
   }
-  const onSelectIssue = (event: any, issue: any) => {
+  const onSelectIssue = (issue: any) => {
     if (issue) {
       setSelectedIssue(issue)
     }

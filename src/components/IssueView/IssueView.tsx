@@ -10,10 +10,16 @@ const IssueView = (args: any) => {
       {issue ? (
         <Grid container className="content-cnt">
           <Grid container>
-            <a className="title" href={issue.html_url}>
+            <a
+              className="title"
+              href={issue.html_url}
+              data-testid="issueViewTitle"
+            >
               {issue.title}
             </a>
-            <span className="issue-number">{' #' + issue.number}</span>
+            <span className="issue-number" data-testid="issueViewNumber">
+              {' #' + issue.number}{' '}
+            </span>
           </Grid>
           <Grid container spacing={2} className="status-container">
             <Grid

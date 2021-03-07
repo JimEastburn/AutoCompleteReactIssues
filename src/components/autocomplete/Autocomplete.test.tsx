@@ -2,7 +2,7 @@ import React from 'react'
 import { fireEvent, render } from '@testing-library/react'
 import Autocomplete from './Autocomplete'
 
-test('renders autocomplete', () => {
+test('Should find select option in autocomplete when typing in text field', () => {
   const { getByRole } = render(
     <Autocomplete
       backgroundColor="#ffffff"

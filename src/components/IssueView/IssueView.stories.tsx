@@ -11,7 +11,7 @@ export default {
 
 const Template: Story = (args): any => <IssueView {...args} />
 
-export const View = Template.bind({})
-View.args = {
+export const Default = Template.bind({})
+Default.args = {
   selectedIssue: issue,
 }

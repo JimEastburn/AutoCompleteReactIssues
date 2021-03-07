@@ -1,18 +1,27 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import './Autocomplete.css'
 import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
-import Autocomplete from '@material-ui/lab/Autocomplete'
+import Autocomplete, {
+  AutocompleteChangeDetails,
+  AutocompleteChangeReason,
+} from '@material-ui/lab/Autocomplete'
 
-const AutocompleteField = (args: any) => {
-  const options = args.options
-  const textChange = args.textChange
-  const onSelectIssue = args.onSelectIssue
-  var backgroundColor = args.backgroundColor
-  var width = args.width
-  const getOptionLabel = (option: any): string => {
-    return option.title
-  }
+interface AutocompleteFieldProps {
+  options: any[]
+  textChange: (s: string) => void
+  onSelectIssue: (
+    event: ChangeEvent<{}>,
+    value: any,
+    reason: AutocompleteChangeReason,
+    details?: AutocompleteChangeDetails<any>
+  ) => void
+  backgroundColor: string
+}
+
+const AutocompleteField = (props: AutocompleteFieldProps) => {
+  const { options, textChange, onSelectIssue, backgroundColor } = props
+  const getOptionLabel = (option: any): string => option.title
   const textChanged = (args: any) => {
     const value: string = args.target.value
     textChange(value)
@@ -24,7 +33,7 @@ const AutocompleteField = (args: any) => {
         {options !== undefined ? (
           <Autocomplete
             options={options}
-            style={{ backgroundColor, width }}
+            style={{ backgroundColor }}
             getOptionLabel={getOptionLabel}
             onChange={onSelectIssue}
             renderInput={(params) => (

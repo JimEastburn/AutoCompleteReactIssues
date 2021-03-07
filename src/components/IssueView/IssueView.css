@@ -29,7 +29,7 @@ a {
 .status-container {
   margin-top: 10px !important;
   align-items: center;
-  width: 99% !important;
+  /* width: 99% !important; */
   overflow: hidden;
 }
 
@@ -64,4 +64,5 @@ a {
 
 .issue-body > p {
   margin: 0px !important;
+  width: 100%;
 }

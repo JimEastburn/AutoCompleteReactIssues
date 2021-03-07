@@ -78,7 +78,7 @@ const IssueView = (args: any) => {
               <></>
             )}
           </Grid>
-          <Grid className="issue-body">
+          <Grid className="issue-body status-container">
             <p>{issue.body}</p>
           </Grid>
         </Grid>

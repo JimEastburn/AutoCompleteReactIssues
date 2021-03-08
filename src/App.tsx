@@ -3,11 +3,14 @@ import './App.css'
 import Grid from '@material-ui/core/Grid'
 import AutocompleteField from './components/autocomplete/Autocomplete'
 import { GITHUB_TOKEN } from './config/config'
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 import IssueView from './components/IssueView/IssueView'
+import { Endpoints } from '@octokit/types'
+
+type ListIssuesResponse = Endpoints['GET /issues']['response']
 
 function App() {
-  const [issues, setIssues] = React.useState([])
+  const [issues, setIssues] = React.useState<Partial<ListIssuesResponse[]>>([])
   const [selectedIssue, setSelectedIssue] = React.useState(null)
   const [searchText, setSearchText] = React.useState('')
 
@@ -16,11 +19,10 @@ function App() {
       Authorization: `token ${GITHUB_TOKEN}`,
     }
     if (searchText) {
-      console.log('searchText: ', searchText)
       var q = `https://api.github.com/search/issues?accept=application/vnd.github.v3+json&per_page=30&page=1&q=repo:facebook/react+${searchText} in:title`
       axios
         .get(q, { headers: header })
-        .then((response: any) => {
+        .then((response: AxiosResponse<any>) => {
           if (response && response.data) {
             setIssues(response.data.items)
           } else {

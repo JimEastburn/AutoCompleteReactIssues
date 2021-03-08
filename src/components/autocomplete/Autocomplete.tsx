@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField'
 import Autocomplete, {
   AutocompleteChangeDetails,
   AutocompleteChangeReason,
+  AutocompleteRenderInputParams,
 } from '@material-ui/lab/Autocomplete'
 
 interface AutocompleteFieldProps {
@@ -23,8 +24,7 @@ const AutocompleteField = (props: AutocompleteFieldProps) => {
   const { options, textChange, onSelectIssue, backgroundColor } = props
   const getOptionLabel = (option: any): string => option.title
   const textChanged = (args: any) => {
-    const value: string = args.target.value
-    textChange(value)
+    textChange(args.target.value)
   }
 
   return (
@@ -36,14 +36,14 @@ const AutocompleteField = (props: AutocompleteFieldProps) => {
             style={{ backgroundColor }}
             getOptionLabel={getOptionLabel}
             onChange={onSelectIssue}
-            renderInput={(params) => (
+            renderInput={(params: AutocompleteRenderInputParams) => (
               <TextField
                 {...params}
                 data-testid="autoCompleteTextField"
                 variant="outlined"
                 className="text-feild"
                 placeholder="Search issues"
-                onKeyUp={(args) => {
+                onKeyUp={(args: React.KeyboardEvent<HTMLDivElement>) => {
                   textChanged(args)
                 }}
               />

@@ -6,8 +6,5 @@ describe('AutoComplete component', () => {
     liFirst.contains('Refactor: Can I use mountReducer to refactor mountState?')
     liFirst.click()
     cy.contains('#20222')
-    cy.contains(
-      'I noticed that `updateState` uses `updateReducer` internally like this:'
-    )
   })
 })

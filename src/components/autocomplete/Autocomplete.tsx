@@ -42,7 +42,7 @@ const AutocompleteField = (props: AutocompleteFieldProps) => {
                 data-testid="autoCompleteTextField"
                 variant="outlined"
                 className="text-feild"
-                placeholder="Search issues"
+                label="Search React issues"
                 onKeyUp={(args: React.KeyboardEvent<HTMLDivElement>) => {
                   textChanged(args)
                 }}

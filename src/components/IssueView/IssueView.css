@@ -9,6 +9,7 @@
 a {
   color: #000000;
 }
+
 .content-cnt {
   width: 90%;
   text-align: left;
@@ -24,6 +25,7 @@ a {
   color: rgb(106 115 125);
   font-weight: 300;
   font-size: 32px;
+  padding-left: 20px;
 }
 
 .status-container {
@@ -57,9 +59,7 @@ a {
 }
 
 .issue-body {
-  border: 1px #2f2f2f solid;
-  padding: 5px 5px !important;
-  margin-top: 20px;
+  padding-top: 20px;
 }
 
 .issue-body > p {

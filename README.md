@@ -31,7 +31,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `yarn storybook`
 
-run `yarn build-storybook first.
+run `yarn build-storybook` first.
 
 ### `yarn cypress`
 

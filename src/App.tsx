@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import './App.css'
 import Grid from '@material-ui/core/Grid'
 import AutocompleteField from './components/autocomplete/Autocomplete'
-import { GITHUB_TOKEN } from './config/config'
+// import { GITHUB_TOKEN } from './config/config'
 import axios, { AxiosResponse } from 'axios'
 import IssueView from './components/IssueView/IssueView'
 import { Endpoints } from '@octokit/types'
@@ -18,13 +18,14 @@ function App() {
   const [searchText, setSearchText] = React.useState('')
 
   useEffect(() => {
-    const header = {
-      Authorization: `token ${GITHUB_TOKEN}`,
-    }
+    // const header = {
+    //   Authorization: `token ${GITHUB_TOKEN}`,
+    // }
     if (searchText) {
       var q = `https://api.github.com/search/issues?accept=application/vnd.github.v3+json&per_page=30&page=1&q=repo:facebook/react+${searchText} in:title`
       axios
-        .get(q, { headers: header })
+        // .get(q, { headers: header })
+        .get(q)
         .then((response: AxiosResponse<any>) => {
           if (response && response.data) {
             setIssues(response.data.items)
